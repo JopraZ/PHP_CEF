@@ -1,0 +1,16 @@
+{
+  "name": "php_cef",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000P\u0000H\u0000P\u0000_\u0000C\u0000E\u0000F\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "sass": "^1.97.3"
+  }
+}

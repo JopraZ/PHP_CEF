@@ -5,7 +5,7 @@ namespace Louis\PhpCef\Models;
 class User extends BaseModel {
 
     public function findByEmail(string $email): ?array {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE mail = :email");
         $stmt->execute(['email' => $email]);
         $user = $stmt->fetch();
 
@@ -13,7 +13,7 @@ class User extends BaseModel {
     }
 
     public function findAll(): array {
-        $stmt = $this->db->query("SELECT * FROM users");
+        $stmt = $this->db->query("SELECT id_users, nom, prenom, mail, role FROM users");
         return $stmt->fetchAll();
     }
 }

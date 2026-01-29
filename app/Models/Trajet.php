@@ -3,6 +3,7 @@
 namespace Louis\PhpCef\Models;
 
 class Trajet extends BaseModel {
+
     public function findAvailable(): array {
         $sql = "
             SELECT t.*,
@@ -16,5 +17,10 @@ class Trajet extends BaseModel {
             ORDER BY t.date_depart ASC";
 
         return $this->db->query($sql)->fetchAll();
+    }
+
+    public function delete(int $id): void {
+        $stmt = $this->db->prepare("DELETE FROM trajets WHERE id_trajet = :id");
+        $stmt->execute(['id' => $id]);
     }
 }
