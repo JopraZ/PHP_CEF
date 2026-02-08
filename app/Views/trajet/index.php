@@ -43,9 +43,23 @@
                         </span>
                     </td>
                     <td class="text-end">
-                        <a href="/trajet/<?= (int) $trajet['id_trajet'] ?>" class="btn btn-sm btn-primary">
+                        <!-- Détails : public -->
+                        <a href="/trajet/<?= (int) $trajet['id_trajet'] ?>"
+                           class="btn btn-sm btn-primary">
                             Détails
                         </a>
+
+                        <!-- Modifier : uniquement si connecté ET auteur -->
+                        <?php if (
+                            isset($_SESSION['user']) &&
+                            isset($trajet['id_users']) &&
+                            (int) $_SESSION['user']['id'] === (int) $trajet['id_users']
+                        ): ?>
+                            <a href="/trajet/edit/<?= (int) $trajet['id_trajet'] ?>"
+                               class="btn btn-sm btn-warning ms-1">
+                                Modifier
+                            </a>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

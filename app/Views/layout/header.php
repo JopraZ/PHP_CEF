@@ -45,6 +45,13 @@
                     Déconnexion
                 </a>
 
+                <?php if (isset($_SESSION['user'])): ?>
+                    <a href="/trajet/create" class="btn btn-success btn-sm me-2">
+                        Proposer un trajet
+                    </a>
+                <?php endif; ?>
+
+
             <?php endif; ?>
 
         </div>

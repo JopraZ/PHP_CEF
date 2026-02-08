@@ -16,46 +16,37 @@ class AuthController
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    if (empty($email) || empty($password)) {
-        $_SESSION['error'] = 'Veuillez remplir tous les champs.';
+    if (!$email || !$password) {
+        $_SESSION['error'] = 'Champs manquants.';
         header('Location: /');
         exit;
     }
 
-    $userModel = new \Louis\PhpCef\Models\User();
-    $user = $userModel->findByEmail($email);
+    $user = (new User())->findByEmail($email);
 
     if (!$user || !password_verify($password, $user['password'])) {
         $_SESSION['error'] = 'Identifiants incorrects.';
         header('Location: /');
         exit;
     }
-
-    // ✅ Connexion réussie
     $_SESSION['user'] = [
-        'id'     => $user['id_user'],
+        'id'    => (int) $user['id_users'],
+        'email' => $user['mail'],
         'prenom' => $user['prenom'],
         'nom'    => $user['nom'],
-        'role'   => $user['role'],
+        'role'  => $user['role'],
     ];
 
-    $_SESSION['success'] = 'Bienvenue ' . $user['prenom'];
+    header('Location: ' . ($user['role'] === 'ADMIN' ? '/admin' : '/'));
+    exit;
+}
 
-    // 🔀 REDIRECTION SELON LE RÔLE
-    if ($user['role'] === 'ADMIN') {
-        header('Location: /admin');
-    } else {
-        header('Location: /');
-    }
-
+public function logout(): void
+{
+    session_destroy();
+    header('Location: /');
     exit;
 }
 
 
-    public function logout(): void
-    {
-        session_destroy();
-        header('Location: /');
-        exit;
-    }
 }
