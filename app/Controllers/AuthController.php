@@ -30,7 +30,7 @@ class AuthController
         exit;
     }
     $_SESSION['user'] = [
-        'id'    => (int) $user['id_users'],
+        'id' => (int) $user['id_user'],
         'email' => $user['mail'],
         'prenom' => $user['prenom'],
         'nom'    => $user['nom'],

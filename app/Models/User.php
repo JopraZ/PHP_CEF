@@ -13,7 +13,7 @@ class User extends BaseModel {
     }
 
     public function findAll(): array {
-        $stmt = $this->db->query("SELECT id_users, nom, prenom, mail, role FROM users");
+        $stmt = $this->db->query("SELECT id_user, nom, prenom, mail, role FROM users");
         return $stmt->fetchAll();
     }
 }

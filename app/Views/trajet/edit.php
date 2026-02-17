@@ -8,8 +8,8 @@
         <select name="depart" class="form-select" required>
             <?php foreach ($agences as $agence): ?>
                 <option
-                    value="<?= (int) $agence['id_agences'] ?>"
-                    <?= $agence['id_agences'] == $trajet['id_agence_depart'] ? 'selected' : '' ?>
+                    value="<?= (int) $agence['id_agence'] ?>"
+                    <?= $agence['id_agence'] == $trajet['id_agence_depart'] ? 'selected' : '' ?>
                 >
                     <?= htmlspecialchars($agence['nom']) ?>
                 </option>
@@ -23,8 +23,8 @@
         <select name="arrivee" class="form-select" required>
             <?php foreach ($agences as $agence): ?>
                 <option
-                    value="<?= (int) $agence['id_agences'] ?>"
-                    <?= $agence['id_agences'] == $trajet['id_agence_arrive'] ? 'selected' : '' ?>
+                    value="<?= (int) $agence['id_agence'] ?>"
+                    <?= $agence['id_agence'] == $trajet['id_agence_arrive'] ? 'selected' : '' ?>
                 >
                     <?= htmlspecialchars($agence['nom']) ?>
                 </option>

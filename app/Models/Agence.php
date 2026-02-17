@@ -16,12 +16,12 @@ class Agence extends BaseModel {
     }
 
     public function delete(int $id): void {
-        $stmt = $this->db->prepare("DELETE FROM agences WHERE id_agences = :id");
+        $stmt = $this->db->prepare("DELETE FROM agences WHERE id_agence = :id");
         $stmt->execute(['id' => $id]);
     }
 
     public function find(int $id): array {
-        $stmt = $this->db->prepare("SELECT * FROM agences WHERE id_agences = :id");
+        $stmt = $this->db->prepare("SELECT * FROM agences WHERE id_agence = :id");
         $stmt->execute(['id' => $id]);
         $agence = $stmt->fetch();
 
@@ -29,7 +29,7 @@ class Agence extends BaseModel {
     }
 
     public function update(int $id, string $nom): void {
-        $stmt = $this->db->prepare("UPDATE agences SET nom = :nom WHERE id_agences = :id");
+        $stmt = $this->db->prepare("UPDATE agences SET nom = :nom WHERE id_agence = :id");
         $stmt->execute([
             'nom' => $nom,
             'id' => $id

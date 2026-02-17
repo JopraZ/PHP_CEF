@@ -14,7 +14,7 @@
             <select name="depart" class="form-select" required>
                 <option value="">-- Choisir --</option>
                 <?php foreach ($agences as $agence): ?>
-                    <option value="<?= (int) $agence['id_agences'] ?>">
+                    <option value="<?= (int) $agence['id_agence'] ?>">
                         <?= htmlspecialchars($agence['nom']) ?>
                     </option>
                 <?php endforeach; ?>
@@ -26,7 +26,7 @@
             <select name="arrivee" class="form-select" required>
                 <option value="">-- Choisir --</option>
                 <?php foreach ($agences as $agence): ?>
-                    <option value="<?= (int) $agence['id_agences'] ?>">
+                    <option value="<?= (int) $agence['id_agence'] ?>">
                         <?= htmlspecialchars($agence['nom']) ?>
                     </option>
                 <?php endforeach; ?>
