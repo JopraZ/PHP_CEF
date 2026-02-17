@@ -29,10 +29,11 @@ $router->get('/trajet/:id', function ($id) {
     (new TrajetController())->show((int) $id);
 });
 
-$router->post('/trajet/delete/{id}', function ($id) {
+$router->post('/trajet/delete/:id', function ($id) {
     AuthMiddleware::handle();
     (new TrajetController())->delete((int) $id);
 });
+
 
 $router->get('/trajet/edit/:id', function ($id) {
     AuthMiddleware::handle();

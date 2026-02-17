@@ -52,8 +52,8 @@
                         <!-- Modifier : uniquement si connecté ET auteur -->
                         <?php if (
                             isset($_SESSION['user']) &&
-                            isset($trajet['id_users']) &&
-                            (int) $_SESSION['user']['id'] === (int) $trajet['id_users']
+                            isset($trajet['id_user']) &&
+                            (int) $_SESSION['user']['id'] === (int) $trajet['id_user']
                         ): ?>
                             <a href="/trajet/edit/<?= (int) $trajet['id_trajet'] ?>"
                                class="btn btn-sm btn-warning ms-1">

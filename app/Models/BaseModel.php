@@ -4,7 +4,8 @@ namespace Louis\PhpCef\Models;
 
 use PDO;
 
-abstract class BaseModel {
+abstract class BaseModel
+{
     protected PDO $db;
 
     public function __construct()

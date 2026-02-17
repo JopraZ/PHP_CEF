@@ -1,6 +1,6 @@
 <h1 class="mb-4">Modifier une agence</h1>
 
-<form method="POST" action="/admin/agences/update/<?= (int) $agence['id_agences'] ?>">
+<form method="POST" action="/admin/agences/update/<?= (int) $agence['id_agence'] ?>">
     <div class="mb-3">
         <label class="form-label">Nom de l’agence</label>
         <input
