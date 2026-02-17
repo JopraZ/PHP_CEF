@@ -31,14 +31,14 @@
                 <td><?= htmlspecialchars($agence['nom']) ?></td>
                 <td class="text-end">
                 <a
-                    href="/admin/agences/edit/<?= (int) $agence['id_agences'] ?>"
+                    href="/admin/agences/edit/<?= (int) $agence['id_agence'] ?>"
                     class="btn btn-warning btn-sm"
                 >
                     Modifier
                 </a>
                 <form
                     method="POST"
-                    action="/admin/agences/delete/<?= (int) $agence['id_agences'] ?>"
+                    action="/admin/agences/delete/<?= (int) $agence['id_agence'] ?>"
                     class="d-inline"
                     onsubmit="return confirm('Supprimer cette agence ?');"
                 >
